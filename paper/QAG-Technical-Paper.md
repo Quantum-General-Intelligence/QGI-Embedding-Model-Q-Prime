@@ -147,8 +147,9 @@ This paper makes three claims, in order:
 2. **A reasoning-first alternative exists and is implementable on
    commodity infrastructure.** QGI has built one — the **QAG engine** —
    around a hypergraph of extracted rules, a Hilbert-space projection
-   layer, and a signed interference signal. No quantum hardware is
-   required.
+   layer, and a signed interference signal. The formalism is genuine
+   quantum mechanics — Born rule, superposition, interference — run on
+   classical GPUs. No quantum processing unit is required.
 
 3. **The embedding model is load-bearing.** The QAG pipeline depends on
    an embedding layer that preserves polarity, scope, conditions,
@@ -264,33 +265,45 @@ co-activates. Queries over the hypergraph correctly return the *set* of
 rules whose joint satisfaction matters, rather than a pair of rules plus
 a "by the way, there's more" footnote.
 
-## Hilbert space, without quantum hardware
+## Real quantum formalism, classical hardware
 
-The Hilbert-space framing is similarly practical. A **Hilbert space** is a
-vector space with an inner product — precisely the structure that makes
-notions like *angle*, *projection*, and *interference* well-defined. A
-general-purpose embedding model already outputs vectors in such a space;
-what QAG adds is the observation that the *operations* natural to
-Hilbert spaces — superposition (linear combination), projection onto
-sub-spaces, and signed interference — are also the operations natural
-to compliance reasoning:
+The Hilbert-space framing in QAG is not a metaphor and it is not
+"quantum-inspired" in the soft sense the phrase has acquired in ML. A
+**Hilbert space** is a vector space with an inner product — precisely
+the structure that makes notions like *state*, *observable*, *angle*,
+*projection*, *superposition*, and *interference* well-defined. A
+general-purpose embedding model already outputs vectors in such a
+space. What QAG adds is the rigorous use of the operator algebra and
+probability rule of quantum mechanics — the **Born rule**,
+$P(\text{outcome}\,|\,\psi) = |\langle\text{outcome}\,|\,\psi\rangle|^2$ —
+to extract compliance-relevant quantities from those vectors. The
+operations are the same ones used on physical quantum states; only the
+substrate is different:
 
 - **Superposition** — a single rule frequently asserts several things at
   once (an obligation *and* an exception *and* a sanction). Its vector is
-  a linear combination of those component states.
+  a genuine linear combination of those component states, not a loose
+  analogy to one.
 - **Projection** — asking "does this rule conflict with rule *R*'?" is,
   formally, projecting the joint state onto the subspace of
-  contradiction-bearing states.
+  contradiction-bearing states and reading the squared amplitude via the
+  Born rule.
 - **Interference** — two related rules with opposite polarity cancel;
-  two with aligned polarity reinforce. The *sign* of their inner product
-  is meaningful.
+  two with aligned polarity reinforce. The *sign* of the inner product
+  is meaningful and is the mechanism behind QAG's signed conflict
+  signal.
 
-No quantum hardware is involved. QAG runs on standard cloud compute. The
-word *quantum* denotes a mathematical structure — the Hilbert space and
-its operators — not a hardware substrate. QGI's stack uses classical
-compute with quantum-inspired mathematics, in the same lineage as
-tensor-network methods, quantum probability, and quantum-inspired
-sampling.
+No quantum processing unit is required. QAG runs on standard
+GPU-accelerated compute. The word *quantum* in this paper refers to the
+formalism — Hilbert spaces, the Born rule, superposition, and
+interference — not to a hardware substrate. The mathematics is the same
+operator algebra used in quantum mechanics, executed classically
+because the relevant state vectors (a few thousand dimensions per rule)
+are low-dimensional by quantum standards and reduce to well-conditioned
+dense linear algebra. Put differently: QAG is not a quantum-*inspired*
+system that happens to use vectors; it is a **classical realisation of
+genuinely quantum operations** on states whose dimensionality makes
+classical simulation exact and cheap.
 
 ## The four architectural pillars
 
@@ -680,15 +693,34 @@ task requires is simply absent from those representations. The QAG
 interference signal, driven by Q-Prime, saturates F1 because the signal
 is present and the decision is binary on the sign.
 
-Two caveats are worth stating directly. First, the interference *effect*
-— the observation that signed interference separates related
-same-polarity and opposite-polarity clauses — replicates across
-embedding families, not only Q-Prime. It is a property of the language
-of regulation, not of any one model. Q-Prime's role is to make the
-effect reliable and to add production-grade latency, throughput, and
-operational margin on top. Second, these numbers are drawn from a
-held-out benchmark and will be released under evaluation agreement; they
-are not marketing claims divorced from methodology.
+Three clarifications are worth stating directly.
+
+First, the interference *effect* — that signed interference separates
+same-polarity and opposite-polarity clauses — is a property of the
+language of regulation itself, not of any one model. In internal
+evaluation it replicates across every embedding family we have tested
+(dimensionalities from 384 to 3,072, drawn from four organisations) and
+across out-of-domain corpora well outside the regulatory training
+distribution (medical safety, educational curricula, engineering
+safety, research ethics). Q-Prime's role is to make the effect
+reliable under production conditions — latency, throughput, operational
+margin — not to create it.
+
+Second, conflict is only one of the quantum observables the engine
+publishes. The **Born-rule classifier** —
+$\arg\max_c\,|\langle c\,|\,\psi\rangle|^2$, the argmax of squared
+amplitude over class centroids — supplies zero-shot labelling for
+topic, obligation type, and severity. Signatures produced by two
+independent rule extractors agree within statistical noise, so the
+observed structure is carried by the corpus, not by any one extractor.
+
+Third, the headline numbers above are drawn from a held-out benchmark
+and are released under evaluation agreement. Full methodology —
+corpora, embedding backbones, extractor-agnostic validation,
+out-of-domain generalisation, and GPU throughput at production scale —
+will appear in a **forthcoming companion evaluation paper**. The
+numbers above are neither the full extent of QGI's internal evaluation
+nor marketing claims divorced from methodology.
 
 ## Implications
 
@@ -781,6 +813,13 @@ answer *yes*.
 - **AST** --- *Abstract Syntax Tree.* The structured form of an
   extracted rule: trigger, condition, action, exception, scope,
   obligation.
+- **Born rule** --- The quantum-mechanical probability law
+  $P(\text{outcome}\,|\,\psi)=|\langle\text{outcome}\,|\,\psi\rangle|^2$.
+  Applied in QAG to read off probabilities for named observables
+  (conflict, class membership, polarity) from a rule state $\psi$.
+- **Born-rule classifier** --- The zero-shot classifier
+  $\arg\max_c\,|\langle c\,|\,\psi\rangle|^2$ over class centroids.
+  Used by QAG for topic, obligation type, and severity labelling.
 - **CNL** --- *Controlled Natural Language.* A human-readable rule
   format accepted by QNR2 as an alternative to DSL.
 - **Conflict edge** --- A QHG hyperedge marking two or more rules that
@@ -802,11 +841,18 @@ answer *yes*.
   external content for QNR2 and downstream storage.
 - **Intelligence Signal** --- The QAG engine component that publishes
   non-authoritative HSC outputs (relevance, conflict, overlap, etc.).
+- **Interference signal** --- The signed inner product
+  $\text{polarity}(a,b)\cdot\langle a\,|\,b\rangle$ of two rule
+  states. Negative values indicate contradiction; positive values
+  indicate reinforcement. The quantity behind QAG's conflict detection.
 - **MCP** --- *Model Context Protocol.* Standard for letting agents
   query external knowledge graphs.
 - **Memory** --- The QAG engine component providing persistent storage
   for documents, facts, graphs, and rules.
 - **Node** --- A QHG vertex; typed as rule, condition, action, or entity.
+- **Observable** --- A named projector on the rule-state Hilbert space
+  (for example, *conflict*, *severity*, *polarity*); its expectation
+  value, computed via the Born rule, is the signal QAG publishes.
 - **Predicate** --- The condition component extracted from a rule;
   queryable as a first-class object by symbolic search.
 - **QAG** --- *Quantum-Augmented Generation.* QGI's successor category
@@ -824,6 +870,9 @@ answer *yes*.
   outcomes; the atomic unit of QNR2 and QHG.
 - **Signal** --- In QAG, a non-authoritative analytical output. See
   *Intelligence Signal*.
+- **Superposition** --- A rule state that encodes several simultaneous
+  assertions (obligation, exception, sanction) as a genuine linear
+  combination, not a metaphorical one.
 - **Trace** --- The QAG engine component that records every operation
   and any external execution result, producing an audit-replayable
   history.
