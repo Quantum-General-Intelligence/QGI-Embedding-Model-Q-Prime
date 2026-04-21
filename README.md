@@ -28,11 +28,11 @@ Q-Prime is accessed **as a managed API**. Weights are not distributed. See [How 
 
 ## What Q-Prime Does
 
-Classical embedding models fail on one task that compliance, legal, audit, and regulated-news teams cannot live without: **telling two contradictory statements apart**.
+Rules and regulated text carry structure that classical embeddings discard. A clause holds several meanings at once; it is correlated with other clauses in ways that reinforce, condition, or contradict. A cosine-based retriever flattens all of that into a single point in a vector space and loses the signal that matters.
 
-Two statements that differ by a single negation — "must report" vs "must not report" — look nearly identical to cosine similarity. Retrieval systems built on cosine quietly merge contradictions. Generators downstream paper over the gap. Audits fail.
+Q-Prime is built on the opposite premise. It **finds entangled superpositions in rules and text** and emits a **quantum-structured representation** that keeps them intact. The representation is more compact than a classical embedding — relational structure lives in the state itself, not padded into extra dimensions — and it exposes parameters that cosine similarity cannot see: polarity, scope, conditions, obligation, and cross-rule dependency.
 
-Q-Prime participates in a pipeline — the **QAG engine** — that produces an interference signal with polarity. The signal is signed: same-polarity related statements reinforce, opposite-polarity related statements cancel. The sign is the decision.
+Q-Prime feeds a pipeline — the **QAG engine** — that reads this structure at inference time. Interference between related representations produces a **signed signal**: same-polarity related statements reinforce, opposite-polarity related statements cancel. The sign is the decision. Contradictions that differ only by a negation — "must report" vs "must not report" — become separable, and the same mechanism surfaces scope conflicts, conditional overrides, and other parameters that classical retrieval averages away.
 
 ## Headline Result
 
