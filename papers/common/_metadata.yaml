@@ -1,0 +1,29 @@
+---
+# Shared metadata for every preprint and the executive whitepaper.
+# Each paper's own YAML front matter carries the paper-specific title,
+# subtitle, author, abstract, keywords, and PDF metadata. This file carries
+# only the global document options that are identical across papers.
+# LaTeX styling (colors, fonts, headers, section titles) lives in
+# common/header.tex, included via --include-in-header.
+
+author:
+  - name: Sam Sammane
+    email: sam@qgi.dev
+    affiliation: Chief Technology Officer and Founder, Quantum General Intelligence, Inc.
+date: "21 April 2026"
+
+papersize: a4
+documentclass: article
+geometry:
+  - margin=2.2cm
+  - headheight=15pt
+  - headsep=14pt
+  - footskip=30pt
+fontsize: 11pt
+linestretch: 1.18
+toc: true
+toc-depth: 2
+numbersections: true
+lof: false
+lot: false
+---

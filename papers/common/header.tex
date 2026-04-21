@@ -1,0 +1,64 @@
+% QGI Paper Series -- shared LaTeX preamble
+% Included with --include-in-header in the Makefile.
+
+\usepackage{microtype}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{ragged2e}
+\usepackage{titlesec}
+\usepackage{titling}
+\usepackage{fancyhdr}
+\usepackage{caption}
+\usepackage{xcolor}
+\usepackage{etoolbox}
+
+\definecolor{qgiblue}{HTML}{2E4A8F}
+\definecolor{qgiblueSoft}{HTML}{4A68B0}
+\definecolor{qgigray}{HTML}{4B5561}
+\definecolor{qgimuted}{HTML}{6B7280}
+\definecolor{qgirule}{HTML}{C7D2E4}
+
+% Hyperref colors (applied with \AtBeginDocument so qgiblue is defined first).
+\AtBeginDocument{%
+  \hypersetup{%
+    colorlinks=true,%
+    linkcolor=qgiblue,%
+    urlcolor=qgiblue,%
+    citecolor=qgiblue,%
+    filecolor=qgiblue%
+  }%
+}
+
+% Title block
+\pretitle{\begin{center}\vspace*{0.4em}\color{qgiblue}\sffamily\bfseries\Huge}
+\posttitle{\par\end{center}\vskip 0.4em}
+\preauthor{\begin{center}\large\sffamily\color{qgigray}}
+\postauthor{\par\end{center}\vskip 0.2em}
+\predate{\begin{center}\normalsize\sffamily\color{qgimuted}}
+\postdate{\par\end{center}}
+
+% Page style
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\sffamily\color{qgigray}QGI \textbullet{} Paper Series}
+\fancyhead[R]{\small\sffamily\color{qgigray}Preprint v1.0}
+\fancyfoot[C]{\small\sffamily\color{qgigray}\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+\let\oldheadrule\headrule
+\renewcommand{\headrule}{\color{qgirule}\oldheadrule}
+
+% Section titles
+\titleformat{\section}{\sffamily\Large\bfseries\color{qgiblue}}{\thesection}{0.7em}{}
+\titleformat{\subsection}{\sffamily\large\bfseries\color{qgiblueSoft}}{\thesubsection}{0.6em}{}
+\titleformat{\subsubsection}{\sffamily\normalsize\bfseries\color{qgigray}}{\thesubsubsection}{0.5em}{}
+\titlespacing*{\section}{0pt}{1.8ex plus 0.6ex minus 0.2ex}{0.9ex plus 0.2ex}
+\titlespacing*{\subsection}{0pt}{1.1ex plus 0.4ex minus 0.2ex}{0.5ex plus 0.2ex}
+\titlespacing*{\subsubsection}{0pt}{0.9ex plus 0.3ex minus 0.2ex}{0.4ex}
+
+% Captions + spacing
+\captionsetup{font={small,sf},labelformat=empty,justification=justified,singlelinecheck=false,format=plain,skip=6pt}
+\setlength{\parskip}{0.35em}
+\setlength{\parindent}{0pt}
+\setlength{\emergencystretch}{3em}
