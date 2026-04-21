@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800">
+  <defs>
+    <linearGradient id="bg10" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a2e"/><stop offset="100%" style="stop-color:#1a1a4e"/>
+    </linearGradient>
+    <marker id="arr10" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#f59e0b"/></marker>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bg10)"/>
+
+  <text x="600" y="55" text-anchor="middle" fill="#fff" font-family="Inter,system-ui,sans-serif" font-size="34" font-weight="700">Hybrid Search Engine</text>
+  <text x="600" y="85" text-anchor="middle" fill="#fcd34d" font-family="Inter,system-ui,sans-serif" font-size="16">Reasoning-first retrieval: Symbolic + Vector + HSC Signal Fusion</text>
+
+  <!-- Query input -->
+  <rect x="400" y="110" width="400" height="50" rx="12" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="600" y="140" text-anchor="middle" fill="#fcd34d" font-family="Inter,system-ui,sans-serif" font-size="14" font-weight="600">User Query: "What are the termination clauses?"</text>
+
+  <!-- Split into 3 paths -->
+  <line x1="450" y1="160" x2="200" y2="220" stroke="#f59e0b" stroke-width="1.5" marker-end="url(#arr10)"/>
+  <line x1="600" y1="160" x2="600" y2="220" stroke="#f59e0b" stroke-width="1.5" marker-end="url(#arr10)"/>
+  <line x1="750" y1="160" x2="1000" y2="220" stroke="#f59e0b" stroke-width="1.5" marker-end="url(#arr10)"/>
+
+  <!-- Path 1: Symbolic -->
+  <rect x="60" y="230" width="280" height="200" rx="12" fill="#1e1b4b" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="200" y="260" text-anchor="middle" fill="#3b82f6" font-family="Inter,system-ui,sans-serif" font-size="16" font-weight="700">Symbolic Search</text>
+  <text x="200" y="285" text-anchor="middle" fill="#94a3b8" font-family="Inter,system-ui,sans-serif" font-size="12">Exact rule matching</text>
+  <rect x="80" y="300" width="240" height="25" rx="5" fill="#172554" stroke="#334155"/>
+  <text x="200" y="317" text-anchor="middle" fill="#93c5fd" font-family="monospace" font-size="10">rule_text LIKE '%termination%'</text>
+  <rect x="80" y="335" width="240" height="25" rx="5" fill="#172554" stroke="#334155"/>
+  <text x="200" y="352" text-anchor="middle" fill="#93c5fd" font-family="monospace" font-size="10">role = 'Obligation'</text>
+  <rect x="80" y="370" width="240" height="25" rx="5" fill="#172554" stroke="#334155"/>
+  <text x="200" y="387" text-anchor="middle" fill="#93c5fd" font-family="monospace" font-size="10">metadata.section = 'clauses'</text>
+  <text x="200" y="420" text-anchor="middle" fill="#60a5fa" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="600">Ranked highest by default</text>
+
+  <!-- Path 2: Vector -->
+  <rect x="460" y="230" width="280" height="200" rx="12" fill="#1e1b4b" stroke="#8b5cf6" stroke-width="1.5"/>
+  <text x="600" y="260" text-anchor="middle" fill="#8b5cf6" font-family="Inter,system-ui,sans-serif" font-size="16" font-weight="700">Vector Search</text>
+  <text x="600" y="285" text-anchor="middle" fill="#94a3b8" font-family="Inter,system-ui,sans-serif" font-size="12">Semantic similarity</text>
+  <!-- Vector visualization -->
+  <g transform="translate(490,300)">
+    <rect width="220" height="55" rx="5" fill="#172554" stroke="#334155"/>
+    <text x="110" y="18" text-anchor="middle" fill="#c4b5fd" font-family="monospace" font-size="9">query → embed → 1536-dim vector</text>
+    <text x="110" y="35" text-anchor="middle" fill="#94a3b8" font-family="monospace" font-size="9">cosine_similarity(q, rules)</text>
+    <text x="110" y="48" text-anchor="middle" fill="#a78bfa" font-family="monospace" font-size="9">top_k = 20, threshold = 0.7</text>
+  </g>
+  <text x="600" y="385" text-anchor="middle" fill="#94a3b8" font-family="Inter,system-ui,sans-serif" font-size="11">Finds semantically related rules</text>
+  <text x="600" y="405" text-anchor="middle" fill="#94a3b8" font-family="Inter,system-ui,sans-serif" font-size="11">even with different wording</text>
+  <text x="600" y="420" text-anchor="middle" fill="#a78bfa" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="600">Catches what keywords miss</text>
+
+  <!-- Path 3: HSC Signal -->
+  <rect x="860" y="230" width="280" height="200" rx="12" fill="#1e1b4b" stroke="#ec4899" stroke-width="1.5"/>
+  <text x="1000" y="260" text-anchor="middle" fill="#ec4899" font-family="Inter,system-ui,sans-serif" font-size="16" font-weight="700">HSC Signal Boost</text>
+  <text x="1000" y="285" text-anchor="middle" fill="#94a3b8" font-family="Inter,system-ui,sans-serif" font-size="12">Intelligence reranking</text>
+  <rect x="880" y="300" width="240" height="25" rx="5" fill="#172554" stroke="#334155"/>
+  <text x="1000" y="317" text-anchor="middle" fill="#f9a8d4" font-family="monospace" font-size="10">relevance_signal → boost</text>
+  <rect x="880" y="335" width="240" height="25" rx="5" fill="#172554" stroke="#334155"/>
+  <text x="1000" y="352" text-anchor="middle" fill="#f9a8d4" font-family="monospace" font-size="10">conflict_signal → flag</text>
+  <rect x="880" y="370" width="240" height="25" rx="5" fill="#172554" stroke="#334155"/>
+  <text x="1000" y="387" text-anchor="middle" fill="#f9a8d4" font-family="monospace" font-size="10">overlap_signal → group</text>
+  <text x="1000" y="420" text-anchor="middle" fill="#f472b6" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="600">Adds rule intelligence layer</text>
+
+  <!-- Merge -->
+  <line x1="200" y1="435" x2="500" y2="500" stroke="#f59e0b" stroke-width="1.5" marker-end="url(#arr10)"/>
+  <line x1="600" y1="435" x2="600" y2="500" stroke="#f59e0b" stroke-width="1.5" marker-end="url(#arr10)"/>
+  <line x1="1000" y1="435" x2="700" y2="500" stroke="#f59e0b" stroke-width="1.5" marker-end="url(#arr10)"/>
+
+  <!-- Fusion box -->
+  <rect x="350" y="510" width="500" height="100" rx="14" fill="#1e1b4b" stroke="#f59e0b" stroke-width="2"/>
+  <text x="600" y="545" text-anchor="middle" fill="#f59e0b" font-family="Inter,system-ui,sans-serif" font-size="18" font-weight="700">SCORE FUSION</text>
+  <text x="600" y="570" text-anchor="middle" fill="#fcd34d" font-family="monospace" font-size="12">combined = w_symbolic * symbolic + w_vector * vector + hsc_boost</text>
+  <text x="600" y="595" text-anchor="middle" fill="#94a3b8" font-family="Inter,system-ui,sans-serif" font-size="12">Deduplicated by rule_id  |  Provenance attached  |  Fully explainable</text>
+
+  <!-- Result -->
+  <line x1="600" y1="615" x2="600" y2="660" stroke="#f59e0b" stroke-width="1.5" marker-end="url(#arr10)"/>
+
+  <rect x="250" y="670" width="700" height="80" rx="14" fill="#422006" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="600" y="700" text-anchor="middle" fill="#fff" font-family="Inter,system-ui,sans-serif" font-size="16" font-weight="700">Ranked Results with Full Provenance</text>
+  <text x="600" y="725" text-anchor="middle" fill="#fcd34d" font-family="Inter,system-ui,sans-serif" font-size="13">rule_id  |  rule_type  |  relevance_score  |  source_document  |  section_path  |  conflict_flags</text>
+  <text x="600" y="745" text-anchor="middle" fill="#94a3b8" font-family="Inter,system-ui,sans-serif" font-size="11">Every result traceable to its origin — no black-box ranking</text>
+</svg>

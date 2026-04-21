@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800">
+  <defs>
+    <linearGradient id="bg9" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a2e"/><stop offset="100%" style="stop-color:#1a1a4e"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bg9)"/>
+
+  <text x="600" y="55" text-anchor="middle" fill="#fff" font-family="Inter,system-ui,sans-serif" font-size="34" font-weight="700">Why Hypergraph? Why Quantum-Inspired?</text>
+  <text x="600" y="85" text-anchor="middle" fill="#c4b5fd" font-family="Inter,system-ui,sans-serif" font-size="16">The mathematical foundations that make QHP fundamentally different</text>
+
+  <!-- Left: Regular Graph limitation -->
+  <g transform="translate(50,120)">
+    <rect width="350" height="300" rx="14" fill="#1e293b" stroke="#ef4444" stroke-width="1"/>
+    <text x="175" y="35" text-anchor="middle" fill="#ef4444" font-family="Inter,system-ui,sans-serif" font-size="16" font-weight="700">Regular Graph</text>
+    <text x="175" y="55" text-anchor="middle" fill="#94a3b8" font-family="Inter,system-ui,sans-serif" font-size="12">Edges connect exactly 2 nodes</text>
+
+    <!-- Simple graph -->
+    <circle cx="100" cy="130" r="15" fill="#1e1b4b" stroke="#ef4444"/>
+    <circle cx="250" cy="130" r="15" fill="#1e1b4b" stroke="#ef4444"/>
+    <circle cx="175" cy="220" r="15" fill="#1e1b4b" stroke="#ef4444"/>
+    <line x1="115" y1="130" x2="235" y2="130" stroke="#ef4444" stroke-width="1"/>
+    <line x1="100" y1="145" x2="175" y2="205" stroke="#ef4444" stroke-width="1"/>
+    <line x1="250" y1="145" x2="175" y2="205" stroke="#ef4444" stroke-width="1"/>
+    <text x="100" y="134" text-anchor="middle" fill="#fca5a5" font-family="Inter,system-ui,sans-serif" font-size="8">A</text>
+    <text x="250" y="134" text-anchor="middle" fill="#fca5a5" font-family="Inter,system-ui,sans-serif" font-size="8">B</text>
+    <text x="175" y="224" text-anchor="middle" fill="#fca5a5" font-family="Inter,system-ui,sans-serif" font-size="8">C</text>
+
+    <text x="175" y="265" text-anchor="middle" fill="#f87171" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="600">Cannot express:</text>
+    <text x="175" y="285" text-anchor="middle" fill="#94a3b8" font-family="Inter,system-ui,sans-serif" font-size="11">"Rules A, B, C are jointly required"</text>
+  </g>
+
+  <!-- Right: Hypergraph advantage -->
+  <g transform="translate(450,120)">
+    <rect width="350" height="300" rx="14" fill="#1e1b4b" stroke="#22c55e" stroke-width="1.5"/>
+    <text x="175" y="35" text-anchor="middle" fill="#22c55e" font-family="Inter,system-ui,sans-serif" font-size="16" font-weight="700">Hypergraph</text>
+    <text x="175" y="55" text-anchor="middle" fill="#94a3b8" font-family="Inter,system-ui,sans-serif" font-size="12">Edges connect N nodes simultaneously</text>
+
+    <!-- Hypergraph with hyperedge -->
+    <path d="M 80,130 Q 175,80 270,130 Q 280,180 175,230 Q 70,180 80,130" fill="#22c55e" opacity="0.1" stroke="#22c55e" stroke-width="1.5"/>
+    <circle cx="100" cy="140" r="15" fill="#1e1b4b" stroke="#22c55e" stroke-width="2"/>
+    <circle cx="250" cy="140" r="15" fill="#1e1b4b" stroke="#22c55e" stroke-width="2"/>
+    <circle cx="175" cy="210" r="15" fill="#1e1b4b" stroke="#22c55e" stroke-width="2"/>
+    <text x="100" y="144" text-anchor="middle" fill="#86efac" font-family="Inter,system-ui,sans-serif" font-size="8">A</text>
+    <text x="250" y="144" text-anchor="middle" fill="#86efac" font-family="Inter,system-ui,sans-serif" font-size="8">B</text>
+    <text x="175" y="214" text-anchor="middle" fill="#86efac" font-family="Inter,system-ui,sans-serif" font-size="8">C</text>
+
+    <text x="175" y="265" text-anchor="middle" fill="#86efac" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="600">Naturally expresses:</text>
+    <text x="175" y="285" text-anchor="middle" fill="#94a3b8" font-family="Inter,system-ui,sans-serif" font-size="11">"Rules A, B, C form one group policy"</text>
+  </g>
+
+  <!-- Far right: Quantum analogy -->
+  <g transform="translate(850,120)">
+    <rect width="300" height="300" rx="14" fill="#1e1b4b" stroke="#8b5cf6" stroke-width="1.5"/>
+    <text x="150" y="35" text-anchor="middle" fill="#8b5cf6" font-family="Inter,system-ui,sans-serif" font-size="16" font-weight="700">Quantum Analogy</text>
+    <text x="150" y="55" text-anchor="middle" fill="#94a3b8" font-family="Inter,system-ui,sans-serif" font-size="12">Hilbert space operations</text>
+
+    <!-- Vector space representation -->
+    <line x1="60" y1="230" x2="60" y2="90" stroke="#8b5cf6" stroke-width="1" opacity="0.5"/>
+    <line x1="60" y1="230" x2="250" y2="230" stroke="#8b5cf6" stroke-width="1" opacity="0.5"/>
+
+    <!-- Vectors -->
+    <line x1="60" y1="230" x2="150" y2="120" stroke="#ec4899" stroke-width="2"/>
+    <line x1="60" y1="230" x2="200" y2="140" stroke="#f59e0b" stroke-width="2"/>
+    <line x1="60" y1="230" x2="130" y2="180" stroke="#06b6d4" stroke-width="2"/>
+    <circle cx="150" cy="120" r="4" fill="#ec4899"/>
+    <circle cx="200" cy="140" r="4" fill="#f59e0b"/>
+    <circle cx="130" cy="180" r="4" fill="#06b6d4"/>
+
+    <!-- Projection line -->
+    <line x1="150" y1="120" x2="200" y2="140" stroke="#fff" stroke-width="0.5" stroke-dasharray="3,2" opacity="0.5"/>
+
+    <text x="150" y="265" text-anchor="middle" fill="#c4b5fd" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="600">Rules as vectors in</text>
+    <text x="150" y="283" text-anchor="middle" fill="#94a3b8" font-family="Inter,system-ui,sans-serif" font-size="11">high-dimensional space</text>
+  </g>
+
+  <!-- Explanation section -->
+  <rect x="50" y="450" width="1100" height="300" rx="16" fill="#1e1b4b" opacity="0.4" stroke="#334155"/>
+
+  <text x="600" y="490" text-anchor="middle" fill="#fff" font-family="Inter,system-ui,sans-serif" font-size="20" font-weight="700">The Quantum-Inspired Advantage</text>
+
+  <!-- 4 pillars -->
+  <g transform="translate(80,510)">
+    <rect width="230" height="100" rx="10" fill="#172554" stroke="#8b5cf6" stroke-width="0.5"/>
+    <text x="115" y="25" text-anchor="middle" fill="#8b5cf6" font-family="Inter,system-ui,sans-serif" font-size="13" font-weight="700">Hilbert Space</text>
+    <text x="115" y="48" text-anchor="middle" fill="#94a3b8" font-family="Inter,system-ui,sans-serif" font-size="11">1536-dim embedding vectors</text>
+    <text x="115" y="66" text-anchor="middle" fill="#94a3b8" font-family="Inter,system-ui,sans-serif" font-size="11">serve as the quantum-like</text>
+    <text x="115" y="84" text-anchor="middle" fill="#c4b5fd" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="500">state space for all rules</text>
+  </g>
+  <g transform="translate(340,510)">
+    <rect width="230" height="100" rx="10" fill="#172554" stroke="#ec4899" stroke-width="0.5"/>
+    <text x="115" y="25" text-anchor="middle" fill="#ec4899" font-family="Inter,system-ui,sans-serif" font-size="13" font-weight="700">Superposition</text>
+    <text x="115" y="48" text-anchor="middle" fill="#94a3b8" font-family="Inter,system-ui,sans-serif" font-size="11">Multiple signal types</text>
+    <text x="115" y="66" text-anchor="middle" fill="#94a3b8" font-family="Inter,system-ui,sans-serif" font-size="11">computed simultaneously</text>
+    <text x="115" y="84" text-anchor="middle" fill="#f9a8d4" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="500">from the same rule state</text>
+  </g>
+  <g transform="translate(600,510)">
+    <rect width="230" height="100" rx="10" fill="#172554" stroke="#06b6d4" stroke-width="0.5"/>
+    <text x="115" y="25" text-anchor="middle" fill="#06b6d4" font-family="Inter,system-ui,sans-serif" font-size="13" font-weight="700">Compacting</text>
+    <text x="115" y="48" text-anchor="middle" fill="#94a3b8" font-family="Inter,system-ui,sans-serif" font-size="11">High-dimensional space</text>
+    <text x="115" y="66" text-anchor="middle" fill="#94a3b8" font-family="Inter,system-ui,sans-serif" font-size="11">projected to actionable</text>
+    <text x="115" y="84" text-anchor="middle" fill="#67e8f9" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="500">low-dimensional signals</text>
+  </g>
+  <g transform="translate(860,510)">
+    <rect width="230" height="100" rx="10" fill="#172554" stroke="#f59e0b" stroke-width="0.5"/>
+    <text x="115" y="25" text-anchor="middle" fill="#f59e0b" font-family="Inter,system-ui,sans-serif" font-size="13" font-weight="700">Entanglement</text>
+    <text x="115" y="48" text-anchor="middle" fill="#94a3b8" font-family="Inter,system-ui,sans-serif" font-size="11">Rules are interdependent —</text>
+    <text x="115" y="66" text-anchor="middle" fill="#94a3b8" font-family="Inter,system-ui,sans-serif" font-size="11">changing one affects the</text>
+    <text x="115" y="84" text-anchor="middle" fill="#fcd34d" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="500">entire signal landscape</text>
+  </g>
+
+  <text x="600" y="660" text-anchor="middle" fill="#94a3b8" font-family="Inter,system-ui,sans-serif" font-size="13">Classical computing, quantum-inspired mathematics — practical intelligence at enterprise scale</text>
+
+  <rect x="300" y="690" width="600" height="40" rx="20" fill="#8b5cf6" opacity="0.15" stroke="#8b5cf6" stroke-width="1"/>
+  <text x="600" y="715" text-anchor="middle" fill="#c4b5fd" font-family="Inter,system-ui,sans-serif" font-size="14" font-weight="600">No quantum hardware required — runs on standard cloud infrastructure</text>
+</svg>

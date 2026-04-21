@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800">
+  <defs>
+    <linearGradient id="bg15" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a2e"/><stop offset="100%" style="stop-color:#1a1a4e"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bg15)"/>
+
+  <text x="600" y="55" text-anchor="middle" fill="#fff" font-family="Inter,system-ui,sans-serif" font-size="34" font-weight="700">Enterprise Use Cases</text>
+  <text x="600" y="85" text-anchor="middle" fill="#a5b4fc" font-family="Inter,system-ui,sans-serif" font-size="16">Knowledge intelligence infrastructure for regulated industries</text>
+
+  <!-- Use case 1: Compliance -->
+  <rect x="40" y="120" width="360" height="290" rx="14" fill="#1e1b4b" stroke="#22c55e" stroke-width="1.5"/>
+  <rect x="40" y="120" width="360" height="55" rx="14" fill="#052e16"/>
+  <text x="220" y="155" text-anchor="middle" fill="#22c55e" font-family="Inter,system-ui,sans-serif" font-size="18" font-weight="700">Regulatory Compliance</text>
+  <text x="60" y="200" fill="#94a3b8" font-family="Inter,system-ui,sans-serif" font-size="12">
+    <tspan x="60" dy="0">Ingest thousands of regulatory documents.</tspan>
+    <tspan x="60" dy="20">Automatically detect conflicts between</tspan>
+    <tspan x="60" dy="20">company policies and regulations.</tspan>
+    <tspan x="60" dy="30" fill="#86efac" font-weight="600">HSC signals surface conflicts before auditors.</tspan>
+    <tspan x="60" dy="25">Coverage analysis reveals policy gaps.</tspan>
+    <tspan x="60" dy="20">Full audit trail for every finding.</tspan>
+  </text>
+  <text x="220" y="370" text-anchor="middle" fill="#22c55e" font-family="Inter,system-ui,sans-serif" font-size="13" font-weight="600">Finance  |  Healthcare  |  Energy</text>
+  <text x="220" y="395" text-anchor="middle" fill="#64748b" font-family="Inter,system-ui,sans-serif" font-size="11">SOX, HIPAA, FERC, Basel III</text>
+
+  <!-- Use case 2: Contract Intelligence -->
+  <rect x="420" y="120" width="360" height="290" rx="14" fill="#1e1b4b" stroke="#3b82f6" stroke-width="1.5"/>
+  <rect x="420" y="120" width="360" height="55" rx="14" fill="#172554"/>
+  <text x="600" y="155" text-anchor="middle" fill="#3b82f6" font-family="Inter,system-ui,sans-serif" font-size="18" font-weight="700">Contract Intelligence</text>
+  <text x="440" y="200" fill="#94a3b8" font-family="Inter,system-ui,sans-serif" font-size="12">
+    <tspan x="440" dy="0">Extract clauses, obligations, and</tspan>
+    <tspan x="440" dy="20">termination conditions from contracts.</tspan>
+    <tspan x="440" dy="20">Compare across vendor agreements.</tspan>
+    <tspan x="440" dy="30" fill="#93c5fd" font-weight="600">Overlap signals reveal inconsistencies</tspan>
+    <tspan x="440" dy="20" fill="#93c5fd" font-weight="600">across contract portfolios.</tspan>
+    <tspan x="440" dy="25">Temporal rules track deadlines.</tspan>
+  </text>
+  <text x="600" y="370" text-anchor="middle" fill="#3b82f6" font-family="Inter,system-ui,sans-serif" font-size="13" font-weight="600">Legal  |  Procurement  |  M&amp;A</text>
+  <text x="600" y="395" text-anchor="middle" fill="#64748b" font-family="Inter,system-ui,sans-serif" font-size="11">SLAs, NDAs, MSAs, Licensing</text>
+
+  <!-- Use case 3: AI Agent Grounding -->
+  <rect x="800" y="120" width="360" height="290" rx="14" fill="#1e1b4b" stroke="#8b5cf6" stroke-width="1.5"/>
+  <rect x="800" y="120" width="360" height="55" rx="14" fill="#2e1065"/>
+  <text x="980" y="155" text-anchor="middle" fill="#8b5cf6" font-family="Inter,system-ui,sans-serif" font-size="18" font-weight="700">AI Agent Grounding</text>
+  <text x="820" y="200" fill="#94a3b8" font-family="Inter,system-ui,sans-serif" font-size="12">
+    <tspan x="820" dy="0">Ground AI agents in verified company</tspan>
+    <tspan x="820" dy="20">knowledge. Every agent response</tspan>
+    <tspan x="820" dy="20">traced to authoritative source.</tspan>
+    <tspan x="820" dy="30" fill="#c4b5fd" font-weight="600">MCP protocol enables any AI agent</tspan>
+    <tspan x="820" dy="20" fill="#c4b5fd" font-weight="600">to query the knowledge graph.</tspan>
+    <tspan x="820" dy="25">Zero hallucination guarantee.</tspan>
+  </text>
+  <text x="980" y="370" text-anchor="middle" fill="#8b5cf6" font-family="Inter,system-ui,sans-serif" font-size="13" font-weight="600">Support  |  Operations  |  R&amp;D</text>
+  <text x="980" y="395" text-anchor="middle" fill="#64748b" font-family="Inter,system-ui,sans-serif" font-size="11">Copilots, Chatbots, Autonomous agents</text>
+
+  <!-- Use case 4: Policy Management -->
+  <rect x="40" y="440" width="360" height="250" rx="14" fill="#1e1b4b" stroke="#ec4899" stroke-width="1.5"/>
+  <rect x="40" y="440" width="360" height="55" rx="14" fill="#4a0d2b"/>
+  <text x="220" y="475" text-anchor="middle" fill="#ec4899" font-family="Inter,system-ui,sans-serif" font-size="18" font-weight="700">Policy Management</text>
+  <text x="60" y="520" fill="#94a3b8" font-family="Inter,system-ui,sans-serif" font-size="12">
+    <tspan x="60" dy="0">Centralize and structure internal policies.</tspan>
+    <tspan x="60" dy="20">Detect redundant, conflicting, or</tspan>
+    <tspan x="60" dy="20">outdated rules automatically.</tspan>
+    <tspan x="60" dy="30" fill="#f9a8d4" font-weight="600">Redundancy signals reduce policy bloat</tspan>
+    <tspan x="60" dy="20" fill="#f9a8d4" font-weight="600">by 40-60%.</tspan>
+  </text>
+  <text x="220" y="665" text-anchor="middle" fill="#ec4899" font-family="Inter,system-ui,sans-serif" font-size="13" font-weight="600">HR  |  IT  |  Risk  |  Governance</text>
+
+  <!-- Use case 5: Knowledge Ops -->
+  <rect x="420" y="440" width="360" height="250" rx="14" fill="#1e1b4b" stroke="#f59e0b" stroke-width="1.5"/>
+  <rect x="420" y="440" width="360" height="55" rx="14" fill="#422006"/>
+  <text x="600" y="475" text-anchor="middle" fill="#f59e0b" font-family="Inter,system-ui,sans-serif" font-size="18" font-weight="700">Knowledge Operations</text>
+  <text x="440" y="520" fill="#94a3b8" font-family="Inter,system-ui,sans-serif" font-size="12">
+    <tspan x="440" dy="0">Turn tribal knowledge into structured,</tspan>
+    <tspan x="440" dy="20">searchable, graph-connected assets.</tspan>
+    <tspan x="440" dy="20">Onboarding time reduced dramatically.</tspan>
+    <tspan x="440" dy="30" fill="#fcd34d" font-weight="600">Knowledge state graphs show exactly</tspan>
+    <tspan x="440" dy="20" fill="#fcd34d" font-weight="600">what's known and what's missing.</tspan>
+  </text>
+  <text x="600" y="665" text-anchor="middle" fill="#f59e0b" font-family="Inter,system-ui,sans-serif" font-size="13" font-weight="600">Consulting  |  Engineering  |  Training</text>
+
+  <!-- Use case 6: Due Diligence -->
+  <rect x="800" y="440" width="360" height="250" rx="14" fill="#1e1b4b" stroke="#06b6d4" stroke-width="1.5"/>
+  <rect x="800" y="440" width="360" height="55" rx="14" fill="#083344"/>
+  <text x="980" y="475" text-anchor="middle" fill="#06b6d4" font-family="Inter,system-ui,sans-serif" font-size="18" font-weight="700">Due Diligence</text>
+  <text x="820" y="520" fill="#94a3b8" font-family="Inter,system-ui,sans-serif" font-size="12">
+    <tspan x="820" dy="0">Ingest data rooms in hours, not weeks.</tspan>
+    <tspan x="820" dy="20">Automatically cross-reference clauses</tspan>
+    <tspan x="820" dy="20">across hundreds of documents.</tspan>
+    <tspan x="820" dy="30" fill="#67e8f9" font-weight="600">Topology analysis reveals hidden</tspan>
+    <tspan x="820" dy="20" fill="#67e8f9" font-weight="600">dependencies and risk clusters.</tspan>
+  </text>
+  <text x="980" y="665" text-anchor="middle" fill="#06b6d4" font-family="Inter,system-ui,sans-serif" font-size="13" font-weight="600">M&amp;A  |  Investment  |  Insurance</text>
+
+  <!-- Bottom -->
+  <text x="600" y="745" text-anchor="middle" fill="#94a3b8" font-family="Inter,system-ui,sans-serif" font-size="14">Every use case leverages the same core infrastructure — ingest, normalize, graph, signal, search, reason</text>
+  <text x="600" y="775" text-anchor="middle" fill="#a5b4fc" font-family="Inter,system-ui,sans-serif" font-size="13" font-weight="600">One platform, unlimited knowledge domains</text>
+</svg>
