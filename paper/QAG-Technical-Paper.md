@@ -10,8 +10,8 @@ date: April 2026
 version: Public Preview 1.0
 abstract: |
   Retrieval-Augmented Generation (RAG) was built for the open web. It fails for
-  the documents that matter most to the enterprise — regulations, policies,
-  contracts, case law, and clinical guidelines — because those documents
+  the documents that matter most to the enterprise --- regulations, policies,
+  contracts, case law, and clinical guidelines --- because those documents
   encode *rules*, not prose. Rules have structure: triggers, conditions,
   obligations, scopes, exceptions, negations, and cross-references. Classical
   embeddings flatten all of that into a single vector, and cosine similarity
@@ -19,21 +19,22 @@ abstract: |
 
   This paper introduces **Quantum-Augmented Generation (QAG)**, the successor
   category QGI is releasing for regulated AI. QAG replaces *retrieve and
-  stuff* with a deterministic, auditable pipeline: parse → normalize →
-  hypergraph → Hilbert-space signals → hybrid search → grounded answer.
-  Each stage is advisory rather than authoritative, each result is traceable
-  to source, and the intelligence layer ("Hilbert Space Compacting", HSC)
-  exposes seven named signals — Relevance, Conflict, Overlap, Redundancy,
-  Coverage, Coherence, Topology — that classical retrieval cannot produce.
+  stuff* with a deterministic, auditable pipeline: parse \(\rightarrow\) normalize
+  \(\rightarrow\) hypergraph \(\rightarrow\) Hilbert-space signals \(\rightarrow\)
+  hybrid search \(\rightarrow\) grounded answer. Each stage is advisory rather
+  than authoritative, each result is traceable to source, and the intelligence
+  layer ("Hilbert Space Compacting", HSC) exposes seven named signals ---
+  Relevance, Conflict, Overlap, Redundancy, Coverage, Coherence, and Topology
+  --- that classical retrieval cannot produce.
 
   We then argue, in detail, that a **purpose-built embedding model** is a
   structural requirement of this architecture, not a marketing preference.
   We present **Q-Prime**, QGI's quantum-structured embedding model, and show
-  why the parameters QAG depends on — polarity, scope, conditions,
-  obligation, cross-rule dependency — cannot be recovered after the fact
+  why the parameters QAG depends on --- polarity, scope, conditions,
+  obligation, cross-rule dependency --- cannot be recovered after the fact
   from a general-purpose embedding. On QGI's regulatory-conflict benchmark,
   classical cosine similarity across five widely used embedding models from
-  four organizations scores an F1 of **0.000**; the QAG interference signal
+  four organisations scores an F1 of **0.000**; the QAG interference signal
   driven by Q-Prime scores an F1 of **1.000**. The gap is not incremental.
   It is categorical, and it is a property of the language of regulation
   itself.
@@ -53,26 +54,64 @@ papersize: a4
 documentclass: article
 geometry:
   - margin=2.2cm
+  - headheight=15pt
+  - headsep=14pt
+  - footskip=30pt
 fontsize: 11pt
-linkcolor: RoyalBlue
-urlcolor: RoyalBlue
+linestretch: 1.18
+colorlinks: true
+linkcolor: qgiblue
+urlcolor: qgiblue
+citecolor: qgiblue
+toccolor: qgiblue
 toc: true
 toc-depth: 2
 numbersections: true
-colorlinks: true
+lof: false
+lot: false
 header-includes:
   - \usepackage{microtype}
   - \usepackage{booktabs}
-  - \usepackage{fancyhdr}
+  - \usepackage{longtable}
+  - \usepackage{array}
+  - \usepackage{ragged2e}
+  - \usepackage{titlesec}
   - \usepackage{titling}
-  - \pretitle{\begin{center}\LARGE\bfseries}
-  - \posttitle{\par\end{center}\vskip 0.5em}
+  - \usepackage{fancyhdr}
+  - \usepackage{caption}
+  - \usepackage{xcolor}
+  - \usepackage{etoolbox}
+  - \definecolor{qgiblue}{HTML}{2E4A8F}
+  - \definecolor{qgiblueSoft}{HTML}{4A68B0}
+  - \definecolor{qgigray}{HTML}{4B5563}
+  - \definecolor{qgimuted}{HTML}{6B7280}
+  - \definecolor{qgirule}{HTML}{C7D2E4}
+  - \pretitle{\begin{center}\vspace*{0.4em}\color{qgiblue}\sffamily\bfseries\Huge}
+  - \posttitle{\par\end{center}\vskip 0.4em}
+  - \preauthor{\begin{center}\large\sffamily\color{qgigray}}
+  - \postauthor{\par\end{center}\vskip 0.2em}
+  - \predate{\begin{center}\normalsize\sffamily\color{qgimuted}}
+  - \postdate{\par\end{center}}
   - \pagestyle{fancy}
   - \fancyhf{}
-  - \fancyhead[L]{\small QGI --- Quantum-Augmented Generation}
-  - \fancyhead[R]{\small Public Preview 1.0}
-  - \fancyfoot[C]{\small \thepage}
-  - \renewcommand{\headrulewidth}{0.2pt}
+  - \fancyhead[L]{\small\sffamily\color{qgigray}QGI \textbullet{} Quantum-Augmented Generation}
+  - \fancyhead[R]{\small\sffamily\color{qgigray}Public Preview 1.0}
+  - \fancyfoot[C]{\small\sffamily\color{qgigray}\thepage}
+  - \renewcommand{\headrulewidth}{0.4pt}
+  - \renewcommand{\footrulewidth}{0pt}
+  - \let\oldheadrule\headrule
+  - \renewcommand{\headrule}{\color{qgirule}\oldheadrule}
+  - \titleformat{\section}{\sffamily\Large\bfseries\color{qgiblue}}{\thesection}{0.7em}{}
+  - \titleformat{\subsection}{\sffamily\large\bfseries\color{qgiblueSoft}}{\thesubsection}{0.6em}{}
+  - \titleformat{\subsubsection}{\sffamily\normalsize\bfseries\color{qgigray}}{\thesubsubsection}{0.5em}{}
+  - \titlespacing*{\section}{0pt}{1.8ex plus 0.6ex minus 0.2ex}{0.9ex plus 0.2ex}
+  - \titlespacing*{\subsection}{0pt}{1.1ex plus 0.4ex minus 0.2ex}{0.5ex plus 0.2ex}
+  - \titlespacing*{\subsubsection}{0pt}{0.9ex plus 0.3ex minus 0.2ex}{0.4ex}
+  - \captionsetup{font={small,sf},labelformat=empty,justification=justified,singlelinecheck=false,format=plain,skip=6pt}
+  - \setlength{\parskip}{0.35em}
+  - \setlength{\parindent}{0pt}
+  - \setlength{\emergencystretch}{3em}
+  - \AtBeginDocument{\hypersetup{pdftitle={Quantum-Augmented Generation (QAG)},pdfauthor={Quantum General Intelligence, Inc.},pdfsubject={The QGI QAG engine and the case for the Q-Prime embedding model},pdfkeywords={QAG, Q-Prime, RAG, regulated AI, embedding model, compliance, audit, hypergraph, Hilbert space},pdfcreator={pandoc + xelatex},pdfproducer={QGI typesetting pipeline},bookmarksopen=true,bookmarksnumbered=true,pdfborderstyle={/S/U/W 0.6}}}
 ---
 
 # Introduction: the retrieval assumption fails in regulated domains
@@ -118,11 +157,11 @@ This paper makes three claims, in order:
    — is therefore not an optimisation. It is a structural requirement.
 
 The first two claims form the body of this paper. The third claim is the
-argument we develop in §[Q-Prime-argument].
+argument we develop in [§8](#Q-Prime-argument).
 
 # The QAG engine in one picture
 
-![Figure 1 --- RAG versus QAG (QHP): a paradigm shift from retrieval-augmented to reasoning-first knowledge infrastructure.](figures/fig-01-rag-vs-qhp.png){width=100%}
+![**Figure 1.** RAG versus QAG (QHP): a paradigm shift from retrieval-augmented to reasoning-first knowledge infrastructure.](figures/fig-01-rag-vs-qhp.png){width=100%}
 
 Figure 1 frames the contrast at the highest level. A
 conventional RAG pipeline consists of four stages — blind chunking,
@@ -150,25 +189,56 @@ a **grounded answer**: every claim traces back to a specific rule in a
 specific section of a specific document, and the entire pipeline is
 recorded for audit.
 
-## A note on naming
+## Canonical vocabulary
 
-The QGI stack carries several overlapping names, which we unify here:
+The QGI stack carries several overlapping names. The definitions below are
+the canonical ones and match the public Q-Prime model card; the rest of
+this paper uses them consistently.
 
 | Name | Meaning |
 |---|---|
 | **QAG** | *Quantum-Augmented Generation.* The successor category to RAG. The public-facing name of the engine. |
 | **QHP** | *Quantum HyperGraph Platform.* The technical realisation of the QAG engine. |
-| **QNR2** | The deterministic parser and normaliser (v2). LLM-free, algorithmic, reproducible. |
-| **QHG** | *Quantum HyperGraph.* The immutable graph state emitted by QNR2 and consumed by HSC. |
+| **QNR2** | *Q Normalized Rules v2.* The deterministic parser and normaliser. LLM-free, algorithmic, reproducible. |
+| **QHG** | *Quantum HyperGraph.* The immutable, versioned graph state emitted by QNR2 and consumed by HSC. |
 | **HSC** | *Hilbert Space Compacting.* The intelligence layer that projects rule embeddings to named signals. |
-| **Q-Prime** | The purpose-built embedding model used by HSC. Subject of §[Q-Prime-argument]. |
+| **Q-Prime** | The purpose-built embedding model used by HSC. Subject of [§8](#Q-Prime-argument). |
+| **Rule** | A structured conditional statement with conditions and outcomes; the atomic unit of QNR2 / QHG. |
+| **CNL** | *Controlled Natural Language.* A human-readable rule format accepted by QNR2. |
+| **DSL** | *Domain-Specific Language.* A programmatic rule format accepted by QNR2. |
+| **AST** | *Abstract Syntax Tree.* The internal parsed representation of a rule. |
+| **Node** | An entity in the QHG: rule, condition, action, or entity. |
+| **Hyperedge** | A relationship connecting an arbitrary number of nodes. |
+| **Dependency edge** | A hyperedge indicating one rule depends on another. |
+| **Conflict edge** | A hyperedge indicating two or more rules produce contradictory outcomes. |
+| **Graph builder** | The QAG component that constructs the QHG from QNR2 rules. |
+| **Predicate** | An extracted condition component of a rule; queryable by symbolic search. |
 
 Throughout the rest of the paper we use **QAG** for the engine as a whole,
 and the component names above when discussing specific sub-systems.
 
+## Engine components
+
+The QAG engine is built from five named components. Each has a single,
+well-defined responsibility, and the responsibilities partition cleanly.
+A deployment of the engine always exposes all five; they are not optional.
+
+| Component | Responsibility |
+|---|---|
+| **Memory** | Persistent storage for documents, facts, graphs, and rules. |
+| **Ingestion** | Loads and prepares external content for storage; feeds QNR2. |
+| **Intelligence Signal** | Non-authoritative analytical output emitted by HSC --- relevance, conflict, overlap, redundancy, and so on. |
+| **Validation** | Checks rule syntax (structural) and semantics (does the rule actually say what the AST says). |
+| **Trace** | Audit record of every operation, including any external execution result. |
+
+The *intelligence signal* component is the one that makes QAG visibly
+different from every system that calls itself a "vector database"; we
+describe it in detail in §4 (*Hilbert Space Compacting*) and §5 (*The
+seven intelligence signals*).
+
 # Why a hypergraph, and why a Hilbert space
 
-![Figure 2 --- A hypergraph generalises a graph by letting a single edge connect *N* nodes at once; a Hilbert-space view gives each node a location in a high-dimensional state space.](figures/fig-02-why-hypergraph.png){width=100%}
+![**Figure 2.** A hypergraph generalises a graph by letting a single edge connect *N* nodes at once; a Hilbert-space view gives each node a location in a high-dimensional state space.](figures/fig-02-why-hypergraph.png){width=100%}
 
 Two mathematical choices underpin the QAG engine: the graph that holds
 extracted rules is a **hypergraph**, and the state space each rule is
@@ -239,7 +309,7 @@ answering — is engineering on top of these four choices.
 
 # Hilbert Space Compacting (HSC)
 
-![Figure 3 --- Hilbert Space Compacting: rules are points in a 1536-dimensional state space; named signals are projections that expose conflict, overlap, redundancy, and related structure.](figures/fig-03-hilbert-space-signals.png){width=100%}
+![**Figure 3.** Hilbert Space Compacting: rules are points in a 1536-dimensional state space; named signals are projections that expose conflict, overlap, redundancy, and related structure.](figures/fig-03-hilbert-space-signals.png){width=100%}
 
 Figure 3 makes the HSC operation concrete. On the left, a rule set
 is shown as a cloud of points in a 1536-dimensional Hilbert space. Two
@@ -276,15 +346,15 @@ free-form LLM pipelines cannot provide.
 HSC defines seven named signal classes. Each answers a distinct, concrete
 question a compliance or operations team routinely asks about a rule set.
 
-| | Signal | Question it answers | Output shape |
-|---|---|---|---|
-| **R** | Relevance | Which rules apply to a given context? | Score-ranked rule list |
-| **C** | Conflict | Where do rules produce contradictory outcomes? | Pairs + severity |
-| **O** | Overlap | Where do rule conditions intersect? | Pairs + intersection percentage |
+| Code | Signal | Question it answers | Output shape |
+|:---:|---|---|---|
+| **R** | Relevance  | Which rules apply to a given context? | Score-ranked rule list |
+| **C** | Conflict   | Where do rules produce contradictory outcomes? | Rule pairs + severity |
+| **O** | Overlap    | Where do rule conditions intersect? | Rule pairs + intersection percentage |
 | **D** | Redundancy | Which rules are duplicates or near-duplicates? | Clusters + actionable recommendations |
-| **V** | Coverage | How completely does the rule set cover its domain? | Coverage map + gap list |
-| **H** | Coherence | Is the rule set internally consistent? | Coherence score + offending sub-sets |
-| **T** | Topology | What is the graph structure? | Components, cycles, diameter, reachability |
+| **V** | Coverage   | How completely does the rule set cover its domain? | Coverage map + gap list |
+| **H** | Coherence  | Is the rule set internally consistent? | Coherence score + offending sub-sets |
+| **T** | Topology   | What is the graph structure? | Components, cycles, diameter, reachability |
 
 Two observations on the design:
 
@@ -309,9 +379,25 @@ that produce it. Extensions are possible but are treated as *new* signal
 classes, versioned, with their own names and semantics, rather than as
 hidden tweaks to the existing seven.
 
+## What the Q-Prime public API exposes first
+
+The Q-Prime public beta --- the entry point most readers of this paper
+will see --- exposes a narrower surface than the engine as a whole. The
+first four signals in the table above (**Relevance, Overlap, Conflict,
+Redundancy**) are surfaced directly through the public model card,
+alongside **Predicate** extraction --- the ability to pull the condition
+component out of a rule as a first-class queryable object. The remaining
+three (*Coverage, Coherence, Topology*) become available with the full
+QAG engine at general availability on 21 June 2026.
+
+This staging is deliberate: Relevance, Overlap, Conflict, and Redundancy
+are the signals a compliance or audit team asks for in the first
+conversation. Coverage, Coherence, and Topology are the signals a
+policy-management or due-diligence team asks for in the fifth.
+
 # Hybrid search
 
-![Figure 4 --- The QAG hybrid search engine: symbolic exact match, vector similarity, and HSC reranking fused into a single explainable score.](figures/fig-04-hybrid-search.png){width=100%}
+![**Figure 4.** The QAG hybrid search engine: symbolic exact match, vector similarity, and HSC reranking fused into a single explainable score.](figures/fig-04-hybrid-search.png){width=100%}
 
 Retrieval in QAG is performed by a three-path hybrid engine, illustrated
 in Figure 4. Each path has a different failure mode;
@@ -350,7 +436,7 @@ nothing in the ranking is a black box.
 
 # Trust, determinism, and the audit trail
 
-![Figure 5 --- The QAG trust architecture: five layers, each deterministic, traceable, and advisory.](figures/fig-05-trust-and-audit.png){width=100%}
+![**Figure 5.** The QAG trust architecture: five layers, each deterministic, traceable, and advisory.](figures/fig-05-trust-and-audit.png){width=100%}
 
 The engineering properties that separate QAG from generative-first
 pipelines are summarised in Figure 5 as five layers:
@@ -388,12 +474,37 @@ $$
 None of the three terms is optional. Remove determinism and reproducibility
 dies. Remove traceability and audit dies. Remove human authority and
 accountability dies. A system that asks a user to trust its output
-without all three is, by definition, unauditable — and by the standards
+without all three is, by definition, unauditable --- and by the standards
 of every major regulator, unfit for use in a controlled decision.
+
+## What QAG is, and what it is not
+
+The trust architecture above is easier to reason about once the engine's
+*scope* is stated as plainly as its capabilities. QAG publishes signals;
+it does not publish decisions. The distinction is boundary-level and
+load-bearing:
+
+| Category | In scope for QAG | Out of scope for QAG |
+|---|---|---|
+| **Signal** | Non-authoritative analytical output: relevance, conflict, overlap, redundancy, coverage, coherence, topology, predicate. Advisory only. | --- |
+| **Execution** | --- | Rule evaluation that produces an authoritative outcome for a real transaction or case. Belongs to the customer's system of record. |
+| **Decision** | --- | The final, binding outcome --- approve, deny, escalate, report. Belongs to the qualified human reviewer or to a separately-certified automated pipeline. |
+
+Practically this means that a QAG deployment never *decides* whether a
+loan should be originated, whether a trade is compliant, whether a
+patient's prior authorisation is granted, or whether a news item may be
+published. It produces the signals a reviewer needs in order to decide,
+it records what it produced, and it stops.
+
+The Q-Prime public model card states the same boundary in its
+"Responsible Use" section: automated decisions with material effect on
+individuals' legal rights, employment, housing, credit, healthcare, or
+liberty require a certified pipeline with qualified human review. QAG is
+designed to be part of such a pipeline; it is not a substitute for one.
 
 # Enterprise applications
 
-![Figure 6 --- Six enterprise use-cases served by the same QAG infrastructure: compliance, contract intelligence, agent grounding, policy management, knowledge operations, and due diligence.](figures/fig-06-enterprise-use-cases.png){width=100%}
+![**Figure 6.** Six enterprise use-cases served by the same QAG infrastructure: compliance, contract intelligence, agent grounding, policy management, knowledge operations, and due diligence.](figures/fig-06-enterprise-use-cases.png){width=100%}
 
 Figure 6 maps six enterprise applications to the capabilities
 developed above. They are not six separate products; they are six
@@ -667,24 +778,57 @@ answer *yes*.
 
 # Glossary
 
-- **AST** — Abstract Syntax Tree. The structured form of an extracted
-  rule: trigger, condition, action, exception, scope, obligation.
-- **HSC** — *Hilbert Space Compacting*. The projection layer that turns
-  high-dimensional rule state into named low-dimensional signals.
-- **Hypergraph** — A graph whose edges connect any number of nodes
+- **AST** --- *Abstract Syntax Tree.* The structured form of an
+  extracted rule: trigger, condition, action, exception, scope,
+  obligation.
+- **CNL** --- *Controlled Natural Language.* A human-readable rule
+  format accepted by QNR2 as an alternative to DSL.
+- **Conflict edge** --- A QHG hyperedge marking two or more rules that
+  produce contradictory outcomes.
+- **Dependency edge** --- A QHG hyperedge marking one rule as dependent
+  on another (activation, scope, or precedence).
+- **DSL** --- *Domain-Specific Language.* A programmatic rule format
+  accepted by QNR2 as an alternative to CNL.
+- **Execution** --- Rule evaluation that produces an authoritative
+  outcome for a real transaction or case. *Out of scope for QAG.*
+- **Graph builder** --- The QAG component that constructs the QHG from
+  QNR2-normalised rules.
+- **HSC** --- *Hilbert Space Compacting.* The projection layer that
+  turns high-dimensional rule state into named low-dimensional signals.
+- **Hyperedge** --- A QHG edge connecting an arbitrary number of nodes.
+- **Hypergraph** --- A graph whose edges connect any number of nodes
   simultaneously.
-- **MCP** — Model Context Protocol. Standard for letting agents query
-  external knowledge graphs.
-- **QAG** — *Quantum-Augmented Generation*. QGI's successor category to
-  RAG.
-- **QHG** — *Quantum HyperGraph*. Immutable graph state of extracted
-  rules.
-- **QHP** — *Quantum HyperGraph Platform*. Technical realisation of the
-  QAG engine.
-- **QNR2** — Deterministic parser (v2). LLM-free, algorithmic.
-- **Q-Prime** — QGI's purpose-built embedding model for QAG.
-- **RAG** — *Retrieval-Augmented Generation*. Chunk → embed → retrieve
-  → stuff pattern.
+- **Ingestion** --- The QAG engine component that loads and prepares
+  external content for QNR2 and downstream storage.
+- **Intelligence Signal** --- The QAG engine component that publishes
+  non-authoritative HSC outputs (relevance, conflict, overlap, etc.).
+- **MCP** --- *Model Context Protocol.* Standard for letting agents
+  query external knowledge graphs.
+- **Memory** --- The QAG engine component providing persistent storage
+  for documents, facts, graphs, and rules.
+- **Node** --- A QHG vertex; typed as rule, condition, action, or entity.
+- **Predicate** --- The condition component extracted from a rule;
+  queryable as a first-class object by symbolic search.
+- **QAG** --- *Quantum-Augmented Generation.* QGI's successor category
+  to RAG.
+- **QHG** --- *Quantum HyperGraph.* Immutable, versioned graph state of
+  extracted rules.
+- **QHP** --- *Quantum HyperGraph Platform.* Technical realisation of
+  the QAG engine.
+- **QNR2** --- *Q Normalized Rules v2.* Deterministic parser;
+  LLM-free, algorithmic, reproducible.
+- **Q-Prime** --- QGI's purpose-built embedding model for QAG.
+- **RAG** --- *Retrieval-Augmented Generation.* Chunk \(\rightarrow\)
+  embed \(\rightarrow\) retrieve \(\rightarrow\) stuff pattern.
+- **Rule** --- A structured conditional statement with conditions and
+  outcomes; the atomic unit of QNR2 and QHG.
+- **Signal** --- In QAG, a non-authoritative analytical output. See
+  *Intelligence Signal*.
+- **Trace** --- The QAG engine component that records every operation
+  and any external execution result, producing an audit-replayable
+  history.
+- **Validation** --- The QAG engine component that checks a rule's
+  syntactic and semantic correctness before it enters the graph.
 
 # References and further reading
 
